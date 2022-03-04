@@ -14,12 +14,18 @@
 
 void	ft_putunsigned(unsigned int nb, char base, int *count)
 {
-	if (nb >= BASE)
-		ft_putunsigned(nb / BASE, base, count);
-	if (base == HEXALOWER)
-		*count += write(1, &STR_HEXA_LOWER[nb % BASE], 1);
-	else if (base == HEXAUPPER)
-		*count += write(1, &STR_HEXA_UPPER[nb % BASE], 1);
+	unsigned int	base1;
+
+	if (base == 'u')
+		base1 = 10;
 	else
-		*count += write(1, &STR_DECIMAL[nb % BASE], 1);
+		base1 = 16;
+	if (nb >= base1)
+		ft_putunsigned(nb / base1, base, count);
+	if (base == HEXALOWER)
+		*count += write(1, &STR_HEXA_LOWER[nb % base1], 1);
+	else if (base == HEXAUPPER)
+		*count += write(1, &STR_HEXA_UPPER[nb % base1], 1);
+	else
+		*count += write(1, &STR_DECIMAL[nb % base1], 1);
 }

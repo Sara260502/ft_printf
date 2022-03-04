@@ -6,7 +6,7 @@
 /*   By: szicchie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 13:08:43 by szicchie          #+#    #+#             */
-/*   Updated: 2022/02/04 13:08:45 by szicchie         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:42:00 by szicchie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 void	ft_format_detect(char flag, va_list ap, int *count)
 {
-
-	va_start(ap, flag);
-	
 	if (flag == CHAR)
-		ft_putchar(va_arg(ap, char), count);
-		else if (flag == STRING)
+		ft_putchar(va_arg(ap, int), count);
+	else if (flag == STRING)
 		ft_putstr(va_arg(ap, char *), count);
-		else if (flag == INTEGER || flag == DECIMAL)
+	else if (flag == INTEGER || flag == DECIMAL)
 		ft_putnbr(va_arg(ap, int), count);
-		else if (flag == UNSIGNED || flag == HEXAUPPER || flag == HEXALOWER)
+	else if (flag == UNSIGNED || flag == HEXAUPPER || flag == HEXALOWER)
 		ft_putunsigned(va_arg(ap, unsigned int), flag, count);
-		else if (flag == ADDRESS)
+	else if (flag == ADDRESS)
 		ft_putad(va_arg(ap, unsigned long int), count);
-		else
+	else
 		*count += write(1, &flag, 1);
-		va_end(ap);
 }
 
 int	ft_printf(const char *s, ...)
@@ -52,5 +48,3 @@ int	ft_printf(const char *s, ...)
 	}
 	return (va_end(ap), count);
 }
-
-

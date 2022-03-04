@@ -6,10 +6,9 @@
 /*   By: szicchie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 13:08:50 by szicchie          #+#    #+#             */
-/*   Updated: 2022/02/04 13:08:52 by szicchie         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:44:16 by szicchie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -27,12 +26,7 @@ void	ft_putunsigned(unsigned int nb, char base, int *count);
 void	ft_putad(unsigned long int nb, int *count);
 int		ft_strlen(char *str);
 
-
-
 /*macros*/
-# define BASE ((base == 'u') ? 10 : 16)
-# define SPACE ' '
-# define PLUS '+'
 # define STRING 's'
 # define CHAR 'c'
 # define UNSIGNED 'u'
@@ -42,7 +36,6 @@ int		ft_strlen(char *str);
 # define DECIMAL 'd'
 # define INTEGER 'i'
 # define PERCENT '%'
-# define SHARP '#'
 # define EXIT_ERROR -1
 # define STR_HEXA_LOWER "0123456789abcdef"
 # define STR_HEXA_UPPER "0123456789ABCDEF"

@@ -15,24 +15,23 @@ NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -c -Wextra -Werror -Wall
+RM = rm -f 
 
-.c.o : $(CC) $(CFLAG) -c $<
+CFLAGS = -Wextra -Werror -Wall
 
-SRCS = $(wildcard *.c)
+SRCS = ft_printf.c ft_putad.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunsigned.c ft_strlen.c
 
-BINS := $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME) : $(BINS)
-	ar rcs $(NAME) $(BINS)
+$(NAME): $(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
-clean :
-	rm -f $(BINS)
-	
-fclean : clean
-	rm -f $(NAME)
-	
-re : fclean all
+clean: 
+				$(RM) $(OBJS) $(BONUS_OBJS)
+fclean:		clean
+				$(RM) $(NAME)
+re:				fclean $(NAME)
 
+.PHONY = all clean fclean re 
